@@ -1,0 +1,43 @@
+.pictureFrame{
+   width: auto;
+   height: auto;
+   margin: 0.2vw;
+   float: left;
+   border-style: solid;
+   border-width: 3px;
+
+}
+
+#content{
+    padding-left: 1.7vw;
+}
+#outercontent{
+    width: 100%;
+    text-align: center;
+}
+.images{
+    width: 18vw;
+    height: 13vw;
+    cursor: pointer;
+}
+
+#form{
+    margin-bottom: 10px;
+}
+
+#searchButton{
+    margin-top: 10px;
+}
+
+#searchTop{
+    background-color: lightgray;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#filterButton{
+    margin-top: 10px;
+    margin-left: 26px;
+    margin-bottom: 20px;
+}
