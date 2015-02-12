@@ -1,10 +1,11 @@
 .pictureFrame{
-   width: auto;
-   height: auto;
+   width: 10vw;
+   height: 6vw;
    margin: 0.2vw;
    float: left;
    border-style: solid;
    border-width: 3px;
+   transition: width 2s, height 2s;
 
 }
 
@@ -16,9 +17,10 @@
     text-align: center;
 }
 .images{
-    width: 18vw;
-    height: 13vw;
+    width: 10vw;
+    height: 6vw;
     cursor: pointer;
+    float:left;
 }
 
 #form{
@@ -38,6 +40,5 @@
 
 #filterButton{
     margin-top: 10px;
-    margin-left: 26px;
-    margin-bottom: 20px;
+    margin-left: 5px;
 }
