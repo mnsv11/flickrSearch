@@ -42,3 +42,33 @@
     margin-top: 10px;
     margin-left: 5px;
 }
+#bottom{
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+#pageButtons{
+    width: 65%;
+    margin: 0 auto;
+    padding-left: 30vw
+}
+#backButton{
+    float: left;
+    margin-left: 10px;
+}
+
+#forwadButton{
+    float: left;
+    margin-right: 10px;
+}
+#firstPage{
+    float: left;
+}
+#lastPage{
+    float: left;
+}
+#pageNr{
+    width:200px;
+    float: left;
+}
