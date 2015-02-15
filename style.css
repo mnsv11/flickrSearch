@@ -5,8 +5,14 @@
    float: left;
    border-style: solid;
    border-width: 3px;
-   transition: width 2s, height 2s;
 
+}
+.pictureFrameGallery{
+    width: 10vw;
+   height: 6vw;
+   margin: 0.2vw;
+   float: left;
+   transition: width 2s, height 1s;
 }
 
 #content{
