@@ -7,30 +7,32 @@
     var page = 1;
     var nrOfPages = 0;
     var choosedPics = [];
-    var searchText = document.getElementById("searchText");
-    var pageText = document.getElementById("pageNr");
     var src = "";
     var div;
 
     //content that going to contain all pictures
     var content = document.getElementById("content");
+    var maxPages = document.getElementById("maxPages");
+    var searchText = document.getElementById("searchText");
+    var currentPageNumber = document.getElementById("currentPageNumber");
+    
 
     //search button
     var searchButton = document.getElementById("searchButton");
-    searchButton.addEventListener('click', function () {
+    searchButton.addEventListener('mousedown', function () {
         choosedPics = [];
         backButton.disabled = false;
         forwadButton.disabled = false;
         firstPage.disabled = false;
         lastPage.disabled = false;
+        currentPageNumber.disabled = false;
         page = 1;
         getSearchText();
-
     });
 
     //navigate to previous page
     var backButton = document.getElementById("backButton");
-    backButton.addEventListener('click', function () {
+    backButton.addEventListener('mousedown', function () {
         if (page > 1) {
             page = page - 1;
         }
@@ -39,7 +41,7 @@
 
     //navigate to first page
     var firstPage = document.getElementById("firstPage");
-    firstPage.addEventListener('click', function () {
+    firstPage.addEventListener('mousedown', function () {
         if (page > 1) {
             page = 1;
         }
@@ -48,7 +50,7 @@
 
     //navigate to last page
     var lastPage = document.getElementById("lastPage");
-    lastPage.addEventListener('click', function () {
+    lastPage.addEventListener('mousedown', function () {
         if (nrOfPages !== 0 && page < nrOfPages) {
             page = nrOfPages;
         }
@@ -57,7 +59,7 @@
 
     //navigate to next page
     var forwadButton = document.getElementById("forwadButton");
-    forwadButton.addEventListener('click', function () {
+    forwadButton.addEventListener('mousedown', function () {
         if (nrOfPages !== 0 && page < nrOfPages) {
             page = page + 1;
         }
@@ -65,18 +67,36 @@
     });
 
     //keyevent for textbox
-    searchText.onkeypress = function (evt) {
+    searchText.addEventListener ("keydown", function (evt) {
         //if enter
         if (evt.keyCode === 13) {
             backButton.disabled = false;
             forwadButton.disabled = false;
             firstPage.disabled = false;
             lastPage.disabled = false;
+            currentPageNumber.disabled = false;
             choosedPics = [];
             page = 1;
             getSearchText();
         }
-    };
+    });
+    
+    //change page on enter in page textbox
+    currentPageNumber.addEventListener ("keydown", function (evt) {
+        //if enter
+        if (evt.keyCode === 13) {       
+            if(parseInt(currentPageNumber.value) > nrOfPages){
+                currentPageNumber.value = nrOfPages;
+            }
+            if(parseInt(currentPageNumber.value) < 1){
+                currentPageNumber.value = 1;
+            }
+            if(currentPageNumber.value !== 0){
+                page = currentPageNumber.value; 
+                getSearchText();
+            }
+        }
+    });
 
     //filter button to view gallery of choosed pictures
     var filterButton = document.getElementById("filterButton");
@@ -86,6 +106,7 @@
             forwadButton.disabled = true;
             firstPage.disabled = true;
             lastPage.disabled = true;
+            currentPageNumber.disabled = true;
 
             //clear content
             while (content.firstChild) {
@@ -160,7 +181,9 @@
      */
     function print(arr) {
         content.innerHTML = "";
-        pageText.innerHTML = "Page " + page + " of " + nrOfPages;
+        currentPageNumber.value = page;
+        maxPages.textContent = nrOfPages;
+        //pageText.innerHTML = "Page " + page + " of " + nrOfPages;
         //add all picture with for loop
         for (i = 0; i < arr.length; i++) {
 

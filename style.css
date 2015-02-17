@@ -53,6 +53,7 @@
     text-align: center;
     width: 100%;
     margin-bottom: 50px;
+    padding-bottom: 20px;
 }
 #pageButtons{
     width: 65%;
@@ -77,4 +78,7 @@
 #pageNr{
     width:200px;
     float: left;
+}
+#currentPageNumber{
+    width: 60px;
 }
